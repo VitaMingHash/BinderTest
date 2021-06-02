@@ -11,8 +11,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends FragmentActivity {
     private Button btn;
+    private Button btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +24,20 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 //        BinderManager.getInstance().initBinder(this);
         btn = findViewById(R.id.btn);
+        btn2 = findViewById(R.id.btn2);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.e("main",android.os.Process.myPid()+"进程为");
                 startActivity(new Intent(MainActivity.this, SeActivity.class));
-//                AInterface aInterface = (AInterface)binderManager.find(Constant.A);
-//                try {
-//                    aInterface.a(1);
-//                } catch (RemoteException e) {
-//                    e.printStackTrace();
-//                }
+
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
